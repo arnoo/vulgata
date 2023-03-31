@@ -1,9 +1,8 @@
 \documentclass[paper=a5,pagesize=pdftex,15pt,headinclude=on,twoside=off]{scrbook}
-\usepackage[head=0cm,foot=0.5cm,top=0.5cm,bottom=0.5cm,left=0.5cm,right=1cm]{geometry}
-%\setlength{\marginparwidth}{0}
-%\setlength{\parindent}{-5pt}
+\usepackage[head=0cm,foot=0.5cm,top=0.5cm,bottom=0.5cm,left=0.5cm,right=0.5cm]{geometry}
 \setlength{\parskip}{0pt}
 \linespread{0.9}
+\pagenumbering{gobble}
 
 \usepackage{bigfoot}
 \usepackage{ragged2e}
@@ -25,17 +24,18 @@
 \usepackage{fourier-orns}
 
 \graphicspath{{images}}
-
+\renewcommand{\thesection}{}
+\renewcommand{\thechapter}{}
 
 \title{Biblia Sacra juxta Vulgatam Clementinam}
 
 % Bible books
 \newcommand{\bbook}[4][]{%
-  \makebox[\textwidth][c]{\includegraphics[width=0.9*\linewidth]{#4}}
+  \renewcommand{\chapterheader}{\includegraphics[width=\linewidth]{#4}}
   \chapter[#1]{#2,\\\large #3\\\char"2766}
 }
 \titleformat{\chapter}[hang]%
-   {\centering\huge}%
+   {\chapterheader\newline\centering\huge}%
    {}%
    {0pt}%
    {}
@@ -43,7 +43,6 @@
   {0pt}{0pt}{5pt}
 
 % Bible chapters
-\renewcommand{\thesection}{}
 \newcommand{\bchapter}[1][chap.]{%
    \def\chaptertitle{#1}
    \section{}{}
@@ -61,8 +60,19 @@
 
 \makeatletter % sets @title @author, etc.
 \begin{document}
-\vspace{0.5*\pageheight}
-{\centering\headerfont\Huge\@title}
+\hspace{0pt}
+\vfill
+\begin{center}
+  \begin{minipage}{0.7\textwidth}
+    \begin{center}
+      {\headerfont\Huge\@title}
+    \end{center}
+  \end{minipage}
+  \vspace{0.1\pageheight}
+  \includegraphics[height=0.4\pageheight]{cross-transparent-vector-5.png}
+\end{center}
+\vfill
+\hspace{0pt}
 \input{books/Gn}\clrdouble
 \input{books/Ex}\clrdouble
 %\input{books/Lv}\clrdouble
