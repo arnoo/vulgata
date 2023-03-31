@@ -1,0 +1,6 @@
+[submodule "geneve_1564"]
+	path = geneve_1564
+	url = https://github.com/raphink/geneve_1564.git
+[submodule "vulgata"]
+	path = vulgata
+	url = https://gitlab.com/jperon/vulgata.git
