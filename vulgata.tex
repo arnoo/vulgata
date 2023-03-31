@@ -9,10 +9,8 @@
 \usepackage{ragged2e}
 
 \usepackage{fontspec}
-%\usepackage{xunicode}
 \defaultfontfeatures{Ligatures=Historic,Contextuals=Alternate,Numbers=OldStyle,RawFeature={+ss02,+cv01,+dlig}}
 \setmainfont[RawFeature={+ss02,+cv01,+ss05,+dlig},ItalicFeatures={RawFeature=+cv04,CharacterVariant=5:2}]{EB Garamond}
-% Do the replacements manually in titles, to not ruin the textsc
 \newfontfamily\booktitlefont[RawFeature={-ss02},LetterSpace=40,WordSpace=6]{EB Garamond}
 \newfontfamily\spacedfont[RawFeature={-ss02},LetterSpace=20,WordSpace=3]{EB Garamond}
 \newfontfamily\lettrinefont{EB Garamond Initials}
@@ -23,21 +21,13 @@
 
 \renewcommand{\LettrineFontHook}{\lettrinefont}
 
-% Footnotes
-\usepackage{alphalph}
-\DeclareNewFootnote{main}[alph]
-\renewcommand{\thefootnotemain}{\alphalph{\value{footnotemain}}}
-\DeclareNewFootnote{chapter}[Roman]
-\DeclareNewFootnote{verse}[arabic]
-
-
 \usepackage{titlesec}
 % Use fourier ornaments
 \usepackage{fourier-orns}
 
 % Bible books
 \newcommand{\bbook}[4][]{%
-  \makebox[\textwidth][c]{\includegraphics[width=\pagewidth]{#4}}
+  \makebox[\textwidth][c]{\includegraphics[width=\linewidth]{#4}}
   \chapter[#1]{#2,\\\large #3\\\char"2766}
 }
 \titleformat{\chapter}[hang]%
@@ -54,24 +44,16 @@
    \section{}{}
 }
 
-\renewcommand{\thesection}{\roman{section}}
+\renewcommand{\thesection}{}
 \titleformat{\section}[hang]%
    {\booktitlefont\centering}%
-   {\textsc{\chaptertitle\ \thesection}.}%
+   {\textsc{\chaptertitle\ \roman{section}}.}%
    {5pt}%
    {}
 \titlespacing*{\section}
-  {0pt}{0pt}{0pt}
+  {0pt}{10pt}{0pt}
 
-
-% Headings
-\usepackage{scrlayer-scrpage}
-\rofoot[]{}
-\ohead[\pagemark]{\pagemark}
-
-\pagestyle{scrplain}
-\renewcommand*{\chapterpagestyle}{scrheadings}
-
+\pagestyle{empty}
 
 \begin{document}
 \input{books/Gn}\clrdouble
