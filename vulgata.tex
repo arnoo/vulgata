@@ -1,5 +1,5 @@
 \documentclass[paper=a5,pagesize=pdftex,15pt,headinclude=on,twoside=off]{scrbook}
-\usepackage[head=0cm,foot=0.5cm,top=0.5cm,bottom=0.5cm,left=0.5cm,right=0.5cm]{geometry}
+\usepackage[head=0cm,foot=0.5cm,top=0.5cm,bottom=0.5cm,left=0.7cm,right=0.2cm]{geometry}
 \setlength{\parskip}{0pt}
 \linespread{0.9}
 \pagenumbering{gobble}
@@ -56,9 +56,9 @@
    {0pt}%
    {}
 \titlespacing*{\section}
-  {0pt}{20pt}{0pt}
+  {0pt}{20pt}{10pt}
 
-\newcommand{\mylettrine}[1]{\lettrine[lines=\ifnum \value{section}>1 3 \else 6 \fi,image=true,loversize=0.05,lraise=-0.03]{#1}{}}
+\newcommand{\mylettrine}[1]{\lettrine[lines=\ifnum \value{section}>1 3 \else 6 \fi,image=true,loversize=0.05,lraise=-0.03,findent=\ifnum \value{section}>1 5pt \else 10pt \fi]{#1}{}}
 
 \pagestyle{empty}
 
@@ -70,10 +70,13 @@
   \begin{minipage}{0.7\textwidth}
     \begin{center}
       {\headerfont\Huge Biblia Sacra} \\
+      \vspace{8pt}
       {\headerfont\Large juxta} \\
+      \vspace{5pt}
       {\headerfont\Huge Vulgatam Clementinam} \\
     \end{center}
   \end{minipage}
+  \\
   \vspace{0.1\pageheight}
   \includegraphics[height=0.4\pageheight]{cross-transparent-vector-5.png}
 \end{center}
@@ -81,80 +84,80 @@
 \hspace{0pt}
 \input{books/Gn}\clrdouble
 \input{books/Ex}\clrdouble
-%\input{books/Lv}\clrdouble
-%\input{books/Nm}\clrdouble
-%\input{books/Dt}\clrdouble
-%\input{books/Jos}\clrdouble
-%\input{books/Jdc}\clrdouble
-%\input{books/Rt}\clrdouble
-%\input{books/1Rg}\clrdouble
-%\input{books/2Rg}\clrdouble
-%\input{books/3Rg}\clrdouble
-%\input{books/4Rg}\clrdouble
-%\input{books/1Par}\clrdouble
-%\input{books/2Par}\clrdouble
-%\input{books/Esr}\clrdouble
-%\input{books/Neh}\clrdouble
-%\input{books/Tob}\clrdouble
-%\input{books/Jdt}\clrdouble
-%\input{books/Est}\clrdouble
-%\input{books/Job}\clrdouble
-%\input{books/Ps}\clrdouble
-%\input{books/Pr}\clrdouble
-%\input{books/Ecl}\clrdouble
-%\input{books/Ct}\clrdouble
-%\input{books/Sap}\clrdouble
-%\input{books/Sir}\clrdouble
-%\input{books/Is}\clrdouble
-%\input{books/Jr}\clrdouble
-%\input{books/Lam}\clrdouble
-%\input{books/Bar}\clrdouble
-%\input{books/Ez}\clrdouble
-%\input{books/Dn}\clrdouble
-%\input{books/Os}\clrdouble
-%\input{books/Joel}\clrdouble
-%\input{books/Am}\clrdouble
-%\input{books/Abd}\clrdouble
-%\input{books/Jon}\clrdouble
-%\input{books/Mch}\clrdouble
-%\input{books/Nah}\clrdouble
-%\input{books/Hab}\clrdouble
-%\input{books/Soph}\clrdouble
-%\input{books/Agg}\clrdouble
-%\input{books/Zach}\clrdouble
-%\input{books/Mal}\clrdouble
-%\input{books/1Mcc}\clrdouble
-%\input{books/2Mcc}\clrdouble
+\input{books/Lv}\clrdouble
+\input{books/Nm}\clrdouble
+\input{books/Dt}\clrdouble
+\input{books/Jos}\clrdouble
+\input{books/Jdc}\clrdouble
+\input{books/Rt}\clrdouble
+\input{books/1Rg}\clrdouble
+\input{books/2Rg}\clrdouble
+\input{books/3Rg}\clrdouble
+\input{books/4Rg}\clrdouble
+\input{books/1Par}\clrdouble
+\input{books/2Par}\clrdouble
+\input{books/Esr}\clrdouble
+\input{books/Neh}\clrdouble
+\input{books/Tob}\clrdouble
+\input{books/Jdt}\clrdouble
+\input{books/Est}\clrdouble
+\input{books/Job}\clrdouble
+\input{books/Ps}\clrdouble
+\input{books/Pr}\clrdouble
+\input{books/Ecl}\clrdouble
+\input{books/Ct}\clrdouble
+\input{books/Sap}\clrdouble
+\input{books/Sir}\clrdouble
+\input{books/Is}\clrdouble
+\input{books/Jr}\clrdouble
+\input{books/Lam}\clrdouble
+\input{books/Bar}\clrdouble
+\input{books/Ez}\clrdouble
+\input{books/Dn}\clrdouble
+\input{books/Os}\clrdouble
+\input{books/Joel}\clrdouble
+\input{books/Am}\clrdouble
+\input{books/Abd}\clrdouble
+\input{books/Jon}\clrdouble
+\input{books/Mch}\clrdouble
+\input{books/Nah}\clrdouble
+\input{books/Hab}\clrdouble
+\input{books/Soph}\clrdouble
+\input{books/Agg}\clrdouble
+\input{books/Zach}\clrdouble
+\input{books/Mal}\clrdouble
+\input{books/1Mcc}\clrdouble
+\input{books/2Mcc}\clrdouble
 
-%\addtocontents{toc}{\vspace{24pt}\textsc{Novum Testamentum}}
-%\addtocontents{toc}{\vspace{12pt}}
-%\input{books/Mt}\clrdouble
-%\input{books/Mc}\clrdouble
-%\input{books/Lc}\clrdouble
-%\input{books/Jo}\clrdouble
-%\input{books/Act}\clrdouble
-%\input{books/Rom}\clrdouble
-%\input{books/1Cor}\clrdouble
-%\input{books/2Cor}\clrdouble
-%\input{books/Gal}\clrdouble
-%\input{books/Eph}\clrdouble
-%\input{books/Phlp}\clrdouble
-%\input{books/Col}\clrdouble
-%\input{books/1Thes}\clrdouble
-%\input{books/2Thes}\clrdouble
-%\input{books/1Tim}\clrdouble
-%\input{books/2Tim}\clrdouble
-%\input{books/Tit}\clrdouble
-%\input{books/Phlm}\clrdouble
-%\input{books/Hbr}\clrdouble
-%\input{books/Jac}\clrdouble
-%\input{books/1Ptr}\clrdouble
-%\input{books/2Ptr}\clrdouble
-%\input{books/1Jo}\clrdouble
-%\input{books/2Jo}\clrdouble
-%\input{books/3Jo}\clrdouble
-%\input{books/Jud}\clrdouble
-%\input{books/Apc}\clrdouble
+\addtocontents{toc}{\vspace{24pt}\textsc{Novum Testamentum}}
+\addtocontents{toc}{\vspace{12pt}}
+\input{books/Mt}\clrdouble
+\input{books/Mc}\clrdouble
+\input{books/Lc}\clrdouble
+\input{books/Jo}\clrdouble
+\input{books/Act}\clrdouble
+\input{books/Rom}\clrdouble
+\input{books/1Cor}\clrdouble
+\input{books/2Cor}\clrdouble
+\input{books/Gal}\clrdouble
+\input{books/Eph}\clrdouble
+\input{books/Phlp}\clrdouble
+\input{books/Col}\clrdouble
+\input{books/1Thes}\clrdouble
+\input{books/2Thes}\clrdouble
+\input{books/1Tim}\clrdouble
+\input{books/2Tim}\clrdouble
+\input{books/Tit}\clrdouble
+\input{books/Phlm}\clrdouble
+\input{books/Hbr}\clrdouble
+\input{books/Jac}\clrdouble
+\input{books/1Ptr}\clrdouble
+\input{books/2Ptr}\clrdouble
+\input{books/1Jo}\clrdouble
+\input{books/2Jo}\clrdouble
+\input{books/3Jo}\clrdouble
+\input{books/Jud}\clrdouble
+\input{books/Apc}\clrdouble
 
 \end{document}
 
