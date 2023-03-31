@@ -1,12 +1,13 @@
-\documentclass[paper=a5,pagesize=pdftex,15pt,headinclude=on]{scrbook}
-\usepackage[head=0cm,foot=1cm,top=1.2cm,bottom=2cm,left=1.5cm,right=1.5cm]{geometry}
-\setlength{\marginparwidth}{4.3em}
-\setlength{\parindent}{-5pt}
+\documentclass[paper=a5,pagesize=pdftex,15pt,headinclude=on,twoside=off]{scrbook}
+\usepackage[head=0cm,foot=0.5cm,top=0.5cm,bottom=0.5cm,left=0.5cm,right=1cm]{geometry}
+%\setlength{\marginparwidth}{0}
+%\setlength{\parindent}{-5pt}
 \setlength{\parskip}{0pt}
 \linespread{0.9}
 
 \usepackage{bigfoot}
 \usepackage{ragged2e}
+\usepackage[latin]{babel}
 
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=Historic,Contextuals=Alternate,Numbers=OldStyle,RawFeature={+ss02,+cv01,+dlig}}
@@ -18,16 +19,19 @@
 
 \usepackage{graphicx}
 \usepackage{lettrine}
-
 \renewcommand{\LettrineFontHook}{\lettrinefont}
 
 \usepackage{titlesec}
-% Use fourier ornaments
 \usepackage{fourier-orns}
+
+\graphicspath{{images}}
+
+
+\title{Biblia Sacra juxta Vulgatam Clementinam}
 
 % Bible books
 \newcommand{\bbook}[4][]{%
-  \makebox[\textwidth][c]{\includegraphics[width=\linewidth]{#4}}
+  \makebox[\textwidth][c]{\includegraphics[width=0.9*\linewidth]{#4}}
   \chapter[#1]{#2,\\\large #3\\\char"2766}
 }
 \titleformat{\chapter}[hang]%
@@ -39,23 +43,26 @@
   {0pt}{0pt}{5pt}
 
 % Bible chapters
+\renewcommand{\thesection}{}
 \newcommand{\bchapter}[1][chap.]{%
    \def\chaptertitle{#1}
    \section{}{}
 }
 
-\renewcommand{\thesection}{}
 \titleformat{\section}[hang]%
    {\booktitlefont\centering}%
    {\textsc{\chaptertitle\ \roman{section}}.}%
-   {5pt}%
+   {0pt}%
    {}
 \titlespacing*{\section}
-  {0pt}{10pt}{0pt}
+  {0pt}{15pt}{0pt}
 
 \pagestyle{empty}
 
+\makeatletter % sets @title @author, etc.
 \begin{document}
+\vspace{0.5*\pageheight}
+{\centering\headerfont\Huge\@title}
 \input{books/Gn}\clrdouble
 \input{books/Ex}\clrdouble
 %\input{books/Lv}\clrdouble
