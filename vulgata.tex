@@ -6,6 +6,7 @@
 
 \usepackage{bigfoot}
 \usepackage{ragged2e}
+\usepackage{needspace}
 \usepackage[latin]{babel}
 
 \usepackage{fontspec}
@@ -24,8 +25,7 @@
 \usepackage{fourier-orns}
 
 \graphicspath{{images}}
-\renewcommand{\thesection}{}
-\renewcommand{\thechapter}{}
+\renewcommand{\thesection}{~}
 
 \title{Biblia Sacra juxta Vulgatam Clementinam}
 
@@ -44,6 +44,7 @@
 
 % Bible chapters
 \newcommand{\bchapter}[1][chap.]{%
+   \Needspace{5\baselineskip}
    \def\chaptertitle{#1}
    \section{}{}
 }
@@ -54,7 +55,9 @@
    {0pt}%
    {}
 \titlespacing*{\section}
-  {0pt}{15pt}{0pt}
+  {0pt}{20pt}{0pt}
+
+\newcommand{\mylettrine}[1]{\lettrine[lines=\ifx\thesection{1}{6}\else{3}\fi,image=true,loversize=0.05,lraise=-0.03]{#1}{}}
 
 \pagestyle{empty}
 
@@ -65,7 +68,9 @@
 \begin{center}
   \begin{minipage}{0.7\textwidth}
     \begin{center}
-      {\headerfont\Huge\@title}
+      {\headerfont\Huge Biblia Sacra} \\
+      {\headerfont\Large juxta} \\
+      {\headerfont\Huge Vulgatam Clementinam} \\
     \end{center}
   \end{minipage}
   \vspace{0.1\pageheight}
