@@ -1,5 +1,9 @@
-\documentclass[twocolumn,paper=a4,pagesize=pdftex,12pt,headinclude=on]{scrbook}
-\areaset[1in]{5in}{11in}
+\documentclass[paper=a5,pagesize=pdftex,15pt,headinclude=on]{scrbook}
+\usepackage[head=0cm,foot=1cm,top=1.2cm,bottom=2cm,left=1.5cm,right=1.5cm]{geometry}
+\setlength{\marginparwidth}{4.3em}
+\setlength{\parindent}{-5pt}
+\setlength{\parskip}{0pt}
+\linespread{0.9}
 
 \usepackage{bigfoot}
 \usepackage{ragged2e}
@@ -19,57 +23,12 @@
 
 \renewcommand{\LettrineFontHook}{\lettrinefont}
 
-% Environments
-\usepackage{setspace}
-\newenvironment{bookcomment}
-  {\begin{spacing}{0.8}\itshape\scriptsize\hspace{-1em}}
-  {\end{spacing}}
-
-
-\newenvironment{chaptercomment}
-  {%
-    \setlength{\leftskip}{1em}
-    \setlength{\rightskip}{1em}
-    \begin{spacing}{0.8}
-      \itshape\tiny\hspace{-2em}}
-  {%
-    \end{spacing}
-    \setlength{\leftskip}{0pt}
-    \setlength{\rightskip}{0pt}
-  }
-
 % Footnotes
 \usepackage{alphalph}
 \DeclareNewFootnote{main}[alph]
 \renewcommand{\thefootnotemain}{\alphalph{\value{footnotemain}}}
 \DeclareNewFootnote{chapter}[Roman]
 \DeclareNewFootnote{verse}[arabic]
-
-
-\setlength{\marginparwidth}{4.3em}% adjust to your document's needs
-\newcommand{\marginnotes}[2]{%
-  \marginpar{\vspace{#1}\tiny#2}
-}
-\newcommand{\fakenote}[3][\space]{%
-   \par\noindent#1#2~\justifying#3
-}
-
-
-% Bible verses
-\newcounter{verse}
-\newcommand{\bverse}{%
-  \addtocounter{verse}{1}
-  \theverse\quad
-}
-
-\newcommand{\bversenopar}[1][\indent]{%
-   \addtocounter{verse}{1}\\#1\theverse~
-}
-
-\newcommand{\bversenonum}{%
-   \addtocounter{verse}{1}
-   \par
-}
 
 
 \usepackage{titlesec}
@@ -90,11 +49,9 @@
   {0pt}{0pt}{5pt}
 
 % Bible chapters
-\newcommand{\bchapter}[1][chap.]{%
-   \setcounter{verse}{0}%
+\newcommand{\versal}[1][chap.]{%
    \def\chaptertitle{#1}
    \section{}{}
-   \setcounter{footnotemain}{0}
 }
 
 \renewcommand{\thesection}{\roman{section}}
@@ -116,96 +73,86 @@
 \renewcommand*{\chapterpagestyle}{scrheadings}
 
 
-% Paragraphs
 
-\setlength{\parindent}{-5pt}
-\setlength{\parskip}{0pt}
-
-
-\linespread{0.9}
-\setlength{\columnsep}{6mm}
-
-% Shortcut, we're using this a lot
-\let\lb\linebreak
 
 \begin{document}
-
+\bbook{Le premier livre de Moyse}{Dict Genese.}{images/genese_heading}
 \input{vulgata/latex/Gn}\clrdouble
-\input{vulgata/latex/Ex}\clrdouble
-\input{vulgata/latex/Lv}\clrdouble
-\input{vulgata/latex/Nm}\clrdouble
-\input{vulgata/latex/Dt}\clrdouble
-\input{vulgata/latex/Jos}\clrdouble
-\input{vulgata/latex/Jdc}\clrdouble
-\input{vulgata/latex/Rt}\clrdouble
-\input{vulgata/latex/1Rg}\clrdouble
-\input{vulgata/latex/2Rg}\clrdouble
-\input{vulgata/latex/3Rg}\clrdouble
-\input{vulgata/latex/4Rg}\clrdouble
-\input{vulgata/latex/1Par}\clrdouble
-\input{vulgata/latex/2Par}\clrdouble
-\input{vulgata/latex/Esr}\clrdouble
-\input{vulgata/latex/Neh}\clrdouble
-\input{vulgata/latex/Tob}\clrdouble
-\input{vulgata/latex/Jdt}\clrdouble
-\input{vulgata/latex/Est}\clrdouble
-\input{vulgata/latex/Job}\clrdouble
-\input{vulgata/latex/Ps}\clrdouble
-\input{vulgata/latex/Pr}\clrdouble
-\input{vulgata/latex/Ecl}\clrdouble
-\input{vulgata/latex/Ct}\clrdouble
-\input{vulgata/latex/Sap}\clrdouble
-\input{vulgata/latex/Sir}\clrdouble
-\input{vulgata/latex/Is}\clrdouble
-\input{vulgata/latex/Jr}\clrdouble
-\input{vulgata/latex/Lam}\clrdouble
-\input{vulgata/latex/Bar}\clrdouble
-\input{vulgata/latex/Ez}\clrdouble
-\input{vulgata/latex/Dn}\clrdouble
-\input{vulgata/latex/Os}\clrdouble
-\input{vulgata/latex/Joel}\clrdouble
-\input{vulgata/latex/Am}\clrdouble
-\input{vulgata/latex/Abd}\clrdouble
-\input{vulgata/latex/Jon}\clrdouble
-\input{vulgata/latex/Mch}\clrdouble
-\input{vulgata/latex/Nah}\clrdouble
-\input{vulgata/latex/Hab}\clrdouble
-\input{vulgata/latex/Soph}\clrdouble
-\input{vulgata/latex/Agg}\clrdouble
-\input{vulgata/latex/Zach}\clrdouble
-\input{vulgata/latex/Mal}\clrdouble
-\input{vulgata/latex/1Mcc}\clrdouble
-\input{vulgata/latex/2Mcc}\clrdouble
-\addtocontents{toc}{\vspace{24pt}\textsc{Novum Testamentum}}
-\addtocontents{toc}{\vspace{12pt}}
-
-\input{vulgata/latex/Mt}\clrdouble
-\input{vulgata/latex/Mc}\clrdouble
-\input{vulgata/latex/Lc}\clrdouble
-\input{vulgata/latex/Jo}\clrdouble
-\input{vulgata/latex/Act}\clrdouble
-\input{vulgata/latex/Rom}\clrdouble
-\input{vulgata/latex/1Cor}\clrdouble
-\input{vulgata/latex/2Cor}\clrdouble
-\input{vulgata/latex/Gal}\clrdouble
-\input{vulgata/latex/Eph}\clrdouble
-\input{vulgata/latex/Phlp}\clrdouble
-\input{vulgata/latex/Col}\clrdouble
-\input{vulgata/latex/1Thes}\clrdouble
-\input{vulgata/latex/2Thes}\clrdouble
-\input{vulgata/latex/1Tim}\clrdouble
-\input{vulgata/latex/2Tim}\clrdouble
-\input{vulgata/latex/Tit}\clrdouble
-\input{vulgata/latex/Phlm}\clrdouble
-\input{vulgata/latex/Hbr}\clrdouble
-\input{vulgata/latex/Jac}\clrdouble
-\input{vulgata/latex/1Ptr}\clrdouble
-\input{vulgata/latex/2Ptr}\clrdouble
-\input{vulgata/latex/1Jo}\clrdouble
-\input{vulgata/latex/2Jo}\clrdouble
-\input{vulgata/latex/3Jo}\clrdouble
-\input{vulgata/latex/Jud}\clrdouble
-\input{vulgata/latex/Apc}\clrdouble
+%\input{vulgata/latex/Ex}\clrdouble
+%\input{vulgata/latex/Lv}\clrdouble
+%\input{vulgata/latex/Nm}\clrdouble
+%\input{vulgata/latex/Dt}\clrdouble
+%\input{vulgata/latex/Jos}\clrdouble
+%\input{vulgata/latex/Jdc}\clrdouble
+%\input{vulgata/latex/Rt}\clrdouble
+%\input{vulgata/latex/1Rg}\clrdouble
+%\input{vulgata/latex/2Rg}\clrdouble
+%\input{vulgata/latex/3Rg}\clrdouble
+%\input{vulgata/latex/4Rg}\clrdouble
+%\input{vulgata/latex/1Par}\clrdouble
+%\input{vulgata/latex/2Par}\clrdouble
+%\input{vulgata/latex/Esr}\clrdouble
+%\input{vulgata/latex/Neh}\clrdouble
+%\input{vulgata/latex/Tob}\clrdouble
+%\input{vulgata/latex/Jdt}\clrdouble
+%\input{vulgata/latex/Est}\clrdouble
+%\input{vulgata/latex/Job}\clrdouble
+%\input{vulgata/latex/Ps}\clrdouble
+%\input{vulgata/latex/Pr}\clrdouble
+%\input{vulgata/latex/Ecl}\clrdouble
+%\input{vulgata/latex/Ct}\clrdouble
+%\input{vulgata/latex/Sap}\clrdouble
+%\input{vulgata/latex/Sir}\clrdouble
+%\input{vulgata/latex/Is}\clrdouble
+%\input{vulgata/latex/Jr}\clrdouble
+%\input{vulgata/latex/Lam}\clrdouble
+%\input{vulgata/latex/Bar}\clrdouble
+%\input{vulgata/latex/Ez}\clrdouble
+%\input{vulgata/latex/Dn}\clrdouble
+%\input{vulgata/latex/Os}\clrdouble
+%\input{vulgata/latex/Joel}\clrdouble
+%\input{vulgata/latex/Am}\clrdouble
+%\input{vulgata/latex/Abd}\clrdouble
+%\input{vulgata/latex/Jon}\clrdouble
+%\input{vulgata/latex/Mch}\clrdouble
+%\input{vulgata/latex/Nah}\clrdouble
+%\input{vulgata/latex/Hab}\clrdouble
+%\input{vulgata/latex/Soph}\clrdouble
+%\input{vulgata/latex/Agg}\clrdouble
+%\input{vulgata/latex/Zach}\clrdouble
+%\input{vulgata/latex/Mal}\clrdouble
+%\input{vulgata/latex/1Mcc}\clrdouble
+%\input{vulgata/latex/2Mcc}\clrdouble
+%\addtocontents{toc}{\vspace{24pt}\textsc{Novum Testamentum}}
+%\addtocontents{toc}{\vspace{12pt}}
+%
+%\input{vulgata/latex/Mt}\clrdouble
+%\input{vulgata/latex/Mc}\clrdouble
+%\input{vulgata/latex/Lc}\clrdouble
+%\input{vulgata/latex/Jo}\clrdouble
+%\input{vulgata/latex/Act}\clrdouble
+%\input{vulgata/latex/Rom}\clrdouble
+%\input{vulgata/latex/1Cor}\clrdouble
+%\input{vulgata/latex/2Cor}\clrdouble
+%\input{vulgata/latex/Gal}\clrdouble
+%\input{vulgata/latex/Eph}\clrdouble
+%\input{vulgata/latex/Phlp}\clrdouble
+%\input{vulgata/latex/Col}\clrdouble
+%\input{vulgata/latex/1Thes}\clrdouble
+%\input{vulgata/latex/2Thes}\clrdouble
+%\input{vulgata/latex/1Tim}\clrdouble
+%\input{vulgata/latex/2Tim}\clrdouble
+%\input{vulgata/latex/Tit}\clrdouble
+%\input{vulgata/latex/Phlm}\clrdouble
+%\input{vulgata/latex/Hbr}\clrdouble
+%\input{vulgata/latex/Jac}\clrdouble
+%\input{vulgata/latex/1Ptr}\clrdouble
+%\input{vulgata/latex/2Ptr}\clrdouble
+%\input{vulgata/latex/1Jo}\clrdouble
+%\input{vulgata/latex/2Jo}\clrdouble
+%\input{vulgata/latex/3Jo}\clrdouble
+%\input{vulgata/latex/Jud}\clrdouble
+%\input{vulgata/latex/Apc}\clrdouble
 
 \end{document}
 
