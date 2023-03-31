@@ -37,7 +37,7 @@
 
 % Bible books
 \newcommand{\bbook}[4][]{%
-  \makebox[\textwidth][c]{\includegraphics[width=6in]{#4}}
+  \makebox[\textwidth][c]{\includegraphics[width=\pagewidth]{#4}}
   \chapter[#1]{#2,\\\large #3\\\char"2766}
 }
 \titleformat{\chapter}[hang]%
@@ -49,7 +49,7 @@
   {0pt}{0pt}{5pt}
 
 % Bible chapters
-\newcommand{\versal}[1][chap.]{%
+\newcommand{\bchapter}[1][chap.]{%
    \def\chaptertitle{#1}
    \section{}{}
 }
@@ -73,12 +73,9 @@
 \renewcommand*{\chapterpagestyle}{scrheadings}
 
 
-
-
 \begin{document}
-\bbook{Le premier livre de Moyse}{Dict Genese.}{images/genese_heading}
 \input{books/Gn}\clrdouble
-%\input{books/Ex}\clrdouble
+\input{books/Ex}\clrdouble
 %\input{books/Lv}\clrdouble
 %\input{books/Nm}\clrdouble
 %\input{books/Dt}\clrdouble
@@ -123,9 +120,9 @@
 %\input{books/Mal}\clrdouble
 %\input{books/1Mcc}\clrdouble
 %\input{books/2Mcc}\clrdouble
+
 %\addtocontents{toc}{\vspace{24pt}\textsc{Novum Testamentum}}
 %\addtocontents{toc}{\vspace{12pt}}
-%
 %\input{books/Mt}\clrdouble
 %\input{books/Mc}\clrdouble
 %\input{books/Lc}\clrdouble
