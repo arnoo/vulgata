@@ -4,6 +4,7 @@
 \linespread{0.9}
 \pagenumbering{gobble}
 
+\usepackage{ifthen}
 \usepackage{bigfoot}
 \usepackage{ragged2e}
 \usepackage{needspace}
@@ -57,7 +58,7 @@
 \titlespacing*{\section}
   {0pt}{20pt}{0pt}
 
-\newcommand{\mylettrine}[1]{\lettrine[lines=\ifx\thesection{1}{6}\else{3}\fi,image=true,loversize=0.05,lraise=-0.03]{#1}{}}
+\newcommand{\mylettrine}[1]{\lettrine[lines=\ifnum \value{section}>1 3 \else 6 \fi,image=true,loversize=0.05,lraise=-0.03]{#1}{}}
 
 \pagestyle{empty}
 
