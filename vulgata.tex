@@ -9,6 +9,7 @@
 \usepackage{ragged2e}
 \usepackage{needspace}
 \usepackage[latin]{babel}
+\usepackage[all]{nowidow} % Avoid window lines (a line by itself on a page at the end of a chapter)
 
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=Historic,Contextuals=Alternate,Numbers=OldStyle,RawFeature={+ss02,+cv01,+dlig}}
@@ -26,6 +27,7 @@
 \usepackage{fourier-orns}
 
 \graphicspath{{images}}
+\renewcommand*\contentsname{Index Generalis}
 \renewcommand{\thesection}{~}
 
 \title{Biblia Sacra juxta Vulgatam Clementinam}
@@ -45,7 +47,7 @@
 
 % Bible chapters
 \newcommand{\bchapter}[1][chap.]{%
-   \Needspace{5\baselineskip}
+   \Needspace{0.07\pageheight}
    \def\chaptertitle{#1}
    \section{}{}
 }
@@ -82,82 +84,86 @@
 \end{center}
 \vfill
 \hspace{0pt}
-\input{books/Gn}\clrdouble
-\input{books/Ex}\clrdouble
-\input{books/Lv}\clrdouble
-\input{books/Nm}\clrdouble
-\input{books/Dt}\clrdouble
-\input{books/Jos}\clrdouble
-\input{books/Jdc}\clrdouble
-\input{books/Rt}\clrdouble
-\input{books/1Rg}\clrdouble
-\input{books/2Rg}\clrdouble
-\input{books/3Rg}\clrdouble
-\input{books/4Rg}\clrdouble
-\input{books/1Par}\clrdouble
-\input{books/2Par}\clrdouble
-\input{books/Esr}\clrdouble
-\input{books/Neh}\clrdouble
-\input{books/Tob}\clrdouble
-\input{books/Jdt}\clrdouble
-\input{books/Est}\clrdouble
-\input{books/Job}\clrdouble
-\input{books/Ps}\clrdouble
-\input{books/Pr}\clrdouble
-\input{books/Ecl}\clrdouble
-\input{books/Ct}\clrdouble
-\input{books/Sap}\clrdouble
-\input{books/Sir}\clrdouble
-\input{books/Is}\clrdouble
-\input{books/Jr}\clrdouble
-\input{books/Lam}\clrdouble
-\input{books/Bar}\clrdouble
-\input{books/Ez}\clrdouble
-\input{books/Dn}\clrdouble
-\input{books/Os}\clrdouble
-\input{books/Joel}\clrdouble
-\input{books/Am}\clrdouble
-\input{books/Abd}\clrdouble
-\input{books/Jon}\clrdouble
-\input{books/Mch}\clrdouble
-\input{books/Nah}\clrdouble
-\input{books/Hab}\clrdouble
-\input{books/Soph}\clrdouble
-\input{books/Agg}\clrdouble
-\input{books/Zach}\clrdouble
-\input{books/Mal}\clrdouble
-\input{books/1Mcc}\clrdouble
-\input{books/2Mcc}\clrdouble
-
-\addtocontents{toc}{\vspace{24pt}\textsc{Novum Testamentum}}
+\newpage
+\tableofcontents
+\addtocontents{toc}{\vspace{24pt}\textsc{Antiquum Testamentum}}
 \addtocontents{toc}{\vspace{12pt}}
-\input{books/Mt}\clrdouble
-\input{books/Mc}\clrdouble
-\input{books/Lc}\clrdouble
-\input{books/Jo}\clrdouble
-\input{books/Act}\clrdouble
-\input{books/Rom}\clrdouble
-\input{books/1Cor}\clrdouble
-\input{books/2Cor}\clrdouble
-\input{books/Gal}\clrdouble
-\input{books/Eph}\clrdouble
-\input{books/Phlp}\clrdouble
-\input{books/Col}\clrdouble
-\input{books/1Thes}\clrdouble
-\input{books/2Thes}\clrdouble
-\input{books/1Tim}\clrdouble
-\input{books/2Tim}\clrdouble
-\input{books/Tit}\clrdouble
-\input{books/Phlm}\clrdouble
-\input{books/Hbr}\clrdouble
-\input{books/Jac}\clrdouble
-\input{books/1Ptr}\clrdouble
-\input{books/2Ptr}\clrdouble
-\input{books/1Jo}\clrdouble
-\input{books/2Jo}\clrdouble
-\input{books/3Jo}\clrdouble
-\input{books/Jud}\clrdouble
-\input{books/Apc}\clrdouble
+%\input{books/vulgata_clementina/Gn}\clrdouble
+%\input{books/vulgata_clementina/Ex}\clrdouble
+%\input{books/vulgata_clementina/Lv}\clrdouble
+%\input{books/vulgata_clementina/Nm}\clrdouble
+%\input{books/vulgata_clementina/Dt}\clrdouble
+%\input{books/vulgata_clementina/Jos}\clrdouble
+%\input{books/vulgata_clementina/Jdc}\clrdouble
+%\input{books/vulgata_clementina/Rt}\clrdouble
+%\input{books/vulgata_clementina/1Rg}\clrdouble
+%\input{books/vulgata_clementina/2Rg}\clrdouble
+%\input{books/vulgata_clementina/3Rg}\clrdouble
+%\input{books/vulgata_clementina/4Rg}\clrdouble
+%\input{books/vulgata_clementina/1Par}\clrdouble
+%\input{books/vulgata_clementina/2Par}\clrdouble
+%\input{books/vulgata_clementina/Esr}\clrdouble
+%\input{books/vulgata_clementina/Neh}\clrdouble
+%\input{books/vulgata_clementina/Tob}\clrdouble
+%\input{books/vulgata_clementina/Jdt}\clrdouble
+%\input{books/vulgata_clementina/Est}\clrdouble
+%\input{books/vulgata_clementina/Job}\clrdouble
+\input{books/vulgata_clementina/Ps}\clrdouble
+%\input{books/vulgata_clementina/Pr}\clrdouble
+%\input{books/vulgata_clementina/Ecl}\clrdouble
+%\input{books/vulgata_clementina/Ct}\clrdouble
+%\input{books/vulgata_clementina/Sap}\clrdouble
+%\input{books/vulgata_clementina/Sir}\clrdouble
+%\input{books/vulgata_clementina/Is}\clrdouble
+%\input{books/vulgata_clementina/Jr}\clrdouble
+%\input{books/vulgata_clementina/Lam}\clrdouble
+%\input{books/vulgata_clementina/Bar}\clrdouble
+%\input{books/vulgata_clementina/Ez}\clrdouble
+%\input{books/vulgata_clementina/Dn}\clrdouble
+%\input{books/vulgata_clementina/Os}\clrdouble
+%\input{books/vulgata_clementina/Joel}\clrdouble
+%\input{books/vulgata_clementina/Am}\clrdouble
+%\input{books/vulgata_clementina/Abd}\clrdouble
+%\input{books/vulgata_clementina/Jon}\clrdouble
+%\input{books/vulgata_clementina/Mch}\clrdouble
+%\input{books/vulgata_clementina/Nah}\clrdouble
+%\input{books/vulgata_clementina/Hab}\clrdouble
+%\input{books/vulgata_clementina/Soph}\clrdouble
+%\input{books/vulgata_clementina/Agg}\clrdouble
+%\input{books/vulgata_clementina/Zach}\clrdouble
+%\input{books/vulgata_clementina/Mal}\clrdouble
+%\input{books/vulgata_clementina/1Mcc}\clrdouble
+%\input{books/vulgata_clementina/2Mcc}\clrdouble
+%
+%\addtocontents{toc}{\vspace{24pt}\textsc{Novum Testamentum}}
+%\addtocontents{toc}{\vspace{12pt}}
+%\input{books/vulgata_clementina/Mt}\clrdouble
+%\input{books/vulgata_clementina/Mc}\clrdouble
+%\input{books/vulgata_clementina/Lc}\clrdouble
+%\input{books/vulgata_clementina/Jo}\clrdouble
+%\input{books/vulgata_clementina/Act}\clrdouble
+%\input{books/vulgata_clementina/Rom}\clrdouble
+%\input{books/vulgata_clementina/1Cor}\clrdouble
+%\input{books/vulgata_clementina/2Cor}\clrdouble
+%\input{books/vulgata_clementina/Gal}\clrdouble
+%\input{books/vulgata_clementina/Eph}\clrdouble
+%\input{books/vulgata_clementina/Phlp}\clrdouble
+%\input{books/vulgata_clementina/Col}\clrdouble
+%\input{books/vulgata_clementina/1Thes}\clrdouble
+%\input{books/vulgata_clementina/2Thes}\clrdouble
+%\input{books/vulgata_clementina/1Tim}\clrdouble
+%\input{books/vulgata_clementina/2Tim}\clrdouble
+%\input{books/vulgata_clementina/Tit}\clrdouble
+%\input{books/vulgata_clementina/Phlm}\clrdouble
+%\input{books/vulgata_clementina/Hbr}\clrdouble
+%\input{books/vulgata_clementina/Jac}\clrdouble
+%\input{books/vulgata_clementina/1Ptr}\clrdouble
+%\input{books/vulgata_clementina/2Ptr}\clrdouble
+%\input{books/vulgata_clementina/1Jo}\clrdouble
+%\input{books/vulgata_clementina/2Jo}\clrdouble
+%\input{books/vulgata_clementina/3Jo}\clrdouble
+%\input{books/vulgata_clementina/Jud}\clrdouble
+%\input{books/vulgata_clementina/Apc}\clrdouble
 
 \end{document}
 
