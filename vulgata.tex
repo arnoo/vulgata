@@ -1,8 +1,8 @@
-\documentclass[paper=a5,pagesize=pdftex,15pt,headinclude=on,twoside=off]{scrbook}
+\documentclass[paper=a5,pagesize=pdftex,fontsize=15pt,headinclude=on,twoside=off]{scrbook}
 \usepackage[head=0cm,foot=0.5cm,top=0.5cm,bottom=0.5cm,left=0.7cm,right=0.2cm]{geometry}
 \setlength{\parskip}{0pt}
 \linespread{0.9}
-\pagenumbering{gobble}
+%\pagenumbering{gobble}
 
 \usepackage{ifthen}
 \usepackage{bigfoot}
@@ -28,15 +28,17 @@
 
 \graphicspath{{images}}
 \renewcommand*\contentsname{Index Generalis}
-\setcounter{tocdepth}{1}
-\renewcommand{\thesection}{~}
+\setcounter{tocdepth}{0}
+\DeclareTOCStyleEntry[beforeskip=1pt]{chapter}{chapter}
+\DeclareTOCStyleEntry[beforeskip=10pt]{part}{part}
+\addtokomafont{disposition}{\normalfont}
 
 \title{Biblia Sacra juxta Vulgatam Clementinam}
 
-% Bible books
-\newcommand{\bbook}[4][]{%
-  \renewcommand{\chapterheader}{\includegraphics[width=\linewidth]{#4}}
-  \chapter[#1]{#2\\\char"2766}
+\newcommand{\bbook}[3]{%
+  \renewcommand{\chapterheader}{\includegraphics[width=\linewidth]{#3}}
+  \chapter*{#2\\\char"2766}
+  \addcontentsline{toc}{chapter}{#1}
 }
 \titleformat{\chapter}[hang]%
    {\chapterheader\newline\centering\huge}%
@@ -46,7 +48,6 @@
 \titlespacing*{\chapter}
   {0pt}{0pt}{5pt}
 
-% Bible chapters
 \newcommand{\bchapter}[1][chap.]{%
    \Needspace{0.2\pageheight}
    \def\chaptertitle{#1}
@@ -64,10 +65,9 @@
 \newcommand{\mylettrine}[1]{\lettrine[lines=\ifnum \value{section}>1 3 \else 6 \fi,image=true,loversize=0.05,lraise=-0.03,findent=\ifnum \value{section}>1 5pt \else 10pt \fi]{#1}{}}
 \newcommand{\verselettrine}[1]{\includegraphics[height=\baselineskip]{#1.png}\hspace{1pt}}
 
-\pagestyle{empty}
-
 \makeatletter % sets @title @author, etc.
 \begin{document}
+\pagestyle{empty}
 \hspace{0pt}
 \vfill
 \begin{center}
@@ -87,85 +87,84 @@
 \vfill
 \hspace{0pt}
 \newpage
+\thispagestyle{empty}
 \tableofcontents
-\addtocontents{toc}{\vspace{24pt}\textsc{Antiquum Testamentum}}
-\addtocontents{toc}{\vspace{12pt}}
-%\input{books/vulgata_clementina/Gn}\clrdouble
-%\input{books/vulgata_clementina/Ex}\clrdouble
-%\input{books/vulgata_clementina/Lv}\clrdouble
-%\input{books/vulgata_clementina/Nm}\clrdouble
-%\input{books/vulgata_clementina/Dt}\clrdouble
-%\input{books/vulgata_clementina/Jos}\clrdouble
-%\input{books/vulgata_clementina/Jdc}\clrdouble
-%\input{books/vulgata_clementina/Rt}\clrdouble
-%\input{books/vulgata_clementina/1Rg}\clrdouble
-%\input{books/vulgata_clementina/2Rg}\clrdouble
-%\input{books/vulgata_clementina/3Rg}\clrdouble
-%\input{books/vulgata_clementina/4Rg}\clrdouble
-%\input{books/vulgata_clementina/1Par}\clrdouble
-%\input{books/vulgata_clementina/2Par}\clrdouble
-%\input{books/vulgata_clementina/Esr}\clrdouble
-%\input{books/vulgata_clementina/Neh}\clrdouble
-%\input{books/vulgata_clementina/Tob}\clrdouble
-%\input{books/vulgata_clementina/Jdt}\clrdouble
-%\input{books/vulgata_clementina/Est}\clrdouble
-%\input{books/vulgata_clementina/Job}\clrdouble
-\input{books/vulgata_clementina/Ps}\clrdouble
-%\input{books/vulgata_clementina/Pr}\clrdouble
-%\input{books/vulgata_clementina/Ecl}\clrdouble
-%\input{books/vulgata_clementina/Ct}\clrdouble
-%\input{books/vulgata_clementina/Sap}\clrdouble
-%\input{books/vulgata_clementina/Sir}\clrdouble
-%\input{books/vulgata_clementina/Is}\clrdouble
-%\input{books/vulgata_clementina/Jr}\clrdouble
-%\input{books/vulgata_clementina/Lam}\clrdouble
-%\input{books/vulgata_clementina/Bar}\clrdouble
-%\input{books/vulgata_clementina/Ez}\clrdouble
-%\input{books/vulgata_clementina/Dn}\clrdouble
-%\input{books/vulgata_clementina/Os}\clrdouble
-%\input{books/vulgata_clementina/Joel}\clrdouble
-%\input{books/vulgata_clementina/Am}\clrdouble
-%\input{books/vulgata_clementina/Abd}\clrdouble
-%\input{books/vulgata_clementina/Jon}\clrdouble
-%\input{books/vulgata_clementina/Mch}\clrdouble
-%\input{books/vulgata_clementina/Nah}\clrdouble
-%\input{books/vulgata_clementina/Hab}\clrdouble
-%\input{books/vulgata_clementina/Soph}\clrdouble
-%\input{books/vulgata_clementina/Agg}\clrdouble
-%\input{books/vulgata_clementina/Zach}\clrdouble
-%\input{books/vulgata_clementina/Mal}\clrdouble
-%\input{books/vulgata_clementina/1Mcc}\clrdouble
-%\input{books/vulgata_clementina/2Mcc}\clrdouble
-%
-%\addtocontents{toc}{\vspace{24pt}\textsc{Novum Testamentum}}
-%\addtocontents{toc}{\vspace{12pt}}
-%\input{books/vulgata_clementina/Mt}\clrdouble
-%\input{books/vulgata_clementina/Mc}\clrdouble
-%\input{books/vulgata_clementina/Lc}\clrdouble
-%\input{books/vulgata_clementina/Jo}\clrdouble
-%\input{books/vulgata_clementina/Act}\clrdouble
-%\input{books/vulgata_clementina/Rom}\clrdouble
-%\input{books/vulgata_clementina/1Cor}\clrdouble
-%\input{books/vulgata_clementina/2Cor}\clrdouble
-%\input{books/vulgata_clementina/Gal}\clrdouble
-%\input{books/vulgata_clementina/Eph}\clrdouble
-%\input{books/vulgata_clementina/Phlp}\clrdouble
-%\input{books/vulgata_clementina/Col}\clrdouble
-%\input{books/vulgata_clementina/1Thes}\clrdouble
-%\input{books/vulgata_clementina/2Thes}\clrdouble
-%\input{books/vulgata_clementina/1Tim}\clrdouble
-%\input{books/vulgata_clementina/2Tim}\clrdouble
-%\input{books/vulgata_clementina/Tit}\clrdouble
-%\input{books/vulgata_clementina/Phlm}\clrdouble
-%\input{books/vulgata_clementina/Hbr}\clrdouble
-%\input{books/vulgata_clementina/Jac}\clrdouble
-%\input{books/vulgata_clementina/1Ptr}\clrdouble
-%\input{books/vulgata_clementina/2Ptr}\clrdouble
-%\input{books/vulgata_clementina/1Jo}\clrdouble
-%\input{books/vulgata_clementina/2Jo}\clrdouble
-%\input{books/vulgata_clementina/3Jo}\clrdouble
-%\input{books/vulgata_clementina/Jud}\clrdouble
-%\input{books/vulgata_clementina/Apc}\clrdouble
+\addcontentsline{toc}{part}{ANTIQUUM TESTAMENTUM}
+\input{books/vulgata_clementina/Gn}
+\input{books/vulgata_clementina/Ex}
+\input{books/vulgata_clementina/Lv}
+\input{books/vulgata_clementina/Nm}
+\input{books/vulgata_clementina/Dt}
+\input{books/vulgata_clementina/Jos}
+\input{books/vulgata_clementina/Jdc}
+\input{books/vulgata_clementina/Rt}
+\input{books/vulgata_clementina/1Rg}
+\input{books/vulgata_clementina/2Rg}
+\input{books/vulgata_clementina/3Rg}
+\input{books/vulgata_clementina/4Rg}
+\input{books/vulgata_clementina/1Par}
+\input{books/vulgata_clementina/2Par}
+\input{books/vulgata_clementina/Esr}
+\input{books/vulgata_clementina/Neh}
+\input{books/vulgata_clementina/Tob}
+\input{books/vulgata_clementina/Jdt}
+\input{books/vulgata_clementina/Est}
+\input{books/vulgata_clementina/Job}
+\input{books/vulgata_clementina/Ps}
+\input{books/vulgata_clementina/Pr}
+\input{books/vulgata_clementina/Ecl}
+\input{books/vulgata_clementina/Ct}
+\input{books/vulgata_clementina/Sap}
+\input{books/vulgata_clementina/Sir}
+\input{books/vulgata_clementina/Is}
+\input{books/vulgata_clementina/Jr}
+\input{books/vulgata_clementina/Lam}
+\input{books/vulgata_clementina/Bar}
+\input{books/vulgata_clementina/Ez}
+\input{books/vulgata_clementina/Dn}
+\input{books/vulgata_clementina/Os}
+\input{books/vulgata_clementina/Joel}
+\input{books/vulgata_clementina/Am}
+\input{books/vulgata_clementina/Abd}
+\input{books/vulgata_clementina/Jon}
+\input{books/vulgata_clementina/Mch}
+\input{books/vulgata_clementina/Nah}
+\input{books/vulgata_clementina/Hab}
+\input{books/vulgata_clementina/Soph}
+\input{books/vulgata_clementina/Agg}
+\input{books/vulgata_clementina/Zach}
+\input{books/vulgata_clementina/Mal}
+\input{books/vulgata_clementina/1Mcc}
+\input{books/vulgata_clementina/2Mcc}
+
+\addcontentsline{toc}{part}{NOVUM TESTAMENTUM}
+\input{books/vulgata_clementina/Mt}
+\input{books/vulgata_clementina/Mc}
+\input{books/vulgata_clementina/Lc}
+\input{books/vulgata_clementina/Jo}
+\input{books/vulgata_clementina/Act}
+\input{books/vulgata_clementina/Rom}
+\input{books/vulgata_clementina/1Cor}
+\input{books/vulgata_clementina/2Cor}
+\input{books/vulgata_clementina/Gal}
+\input{books/vulgata_clementina/Eph}
+\input{books/vulgata_clementina/Phlp}
+\input{books/vulgata_clementina/Col}
+\input{books/vulgata_clementina/1Thes}
+\input{books/vulgata_clementina/2Thes}
+\input{books/vulgata_clementina/1Tim}
+\input{books/vulgata_clementina/2Tim}
+\input{books/vulgata_clementina/Tit}
+\input{books/vulgata_clementina/Phlm}
+\input{books/vulgata_clementina/Hbr}
+\input{books/vulgata_clementina/Jac}
+\input{books/vulgata_clementina/1Ptr}
+\input{books/vulgata_clementina/2Ptr}
+\input{books/vulgata_clementina/1Jo}
+\input{books/vulgata_clementina/2Jo}
+\input{books/vulgata_clementina/3Jo}
+\input{books/vulgata_clementina/Jud}
+\input{books/vulgata_clementina/Apc}
 
 \end{document}
 
